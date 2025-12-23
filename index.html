@@ -23,18 +23,11 @@ body {
 .heart {
     font-size: 3.5em;
     animation: pulse 1.5s infinite;
-    margin-bottom: 10px;
 }
 
 h1 {
     font-size: 2.2em;
-    margin-bottom: 10px;
-}
-
-h2 {
-    font-size: 1.3em;
-    font-weight: normal;
-    margin-bottom: 25px;
+    margin: 15px 0;
 }
 
 .card {
@@ -42,9 +35,75 @@ h2 {
     border-radius: 20px;
     padding: 22px;
     margin-top: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
 button {
     margin-top: 20px;
-    font-size: 1.1em
+    font-size: 1.1em;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    background: #ff1493;
+    color: #fff;
+    cursor: pointer;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="heart">💗</div>
+    <h1>Eva, eu te amo</h1>
+
+    <div class="card" id="box">
+        <p>1️⃣ Você sabe que é a pessoa mais importante da minha vida?</p>
+        <button onclick="next()">Sim 💕</button>
+    </div>
+</div>
+
+<script>
+let step = 1;
+
+function next() {
+    const box = document.getElementById("box");
+
+    if (step === 1) {
+        box.innerHTML =
+            "<p>2️⃣ Você sente o quanto eu te amo todos os dias?</p>" +
+            "<button onclick='next()'>Sim 💖</button>";
+    }
+    else if (step === 2) {
+        box.innerHTML =
+            "<p>3️⃣ Você aceita continuar sorrindo comigo?</p>" +
+            "<button onclick='next()'>Sim 💕</button>";
+    }
+    else if (step === 3) {
+        box.innerHTML =
+            "<p>4️⃣ Você promete caminhar comigo em todos os momentos?</p>" +
+            "<button onclick='next()'>Sim 💗</button>";
+    }
+    else if (step === 4) {
+        box.innerHTML =
+            "<p>5️⃣ Você quer ser meu amor hoje, amanhã e sempre?</p>" +
+            "<button onclick='next()'>Sim 💘</button>";
+    }
+    else {
+        box.innerHTML =
+            "<h2>Então é pra sempre 💖</h2>" +
+            "<p>Eu te amo mais do que tudo, Eva.</p>" +
+            "<p>💗💗💗</p>";
+    }
+
+    step++;
+}
+</script>
+
+</body>
+</html>
