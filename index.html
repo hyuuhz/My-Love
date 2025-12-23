@@ -3,145 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eva, eu te amo 💖</title>
+<title>Eva 💖</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(180deg, #ffb6c1, #ff69b4);
-        color: #fff;
-        text-align: center;
-    }
-
-    .container {
-        padding: 30px 18px;
-        max-width: 480px;
-        margin: auto;
-    }
-
-    .heart {
-        font-size: 3.5em;
-        animation: pulse 1.5s infinite;
-    }
-
-    h1 {
-        font-size: 2.3em;
-        margin: 15px 0 5px;
-    }
-
-    h2 {
-        font-size: 1.2em;
-        font-weight: normal;
-        margin-bottom: 25px;
-    }
-
-    .card {
-        background: rgba(255,255,255,0.25);
-        border-radius: 20px;
-        padding: 18px;
-        margin: 15px 0;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    }
-
-    p {
-        font-size: 1.05em;
-        line-height: 1.6;
-    }
-
-    .music {
-        margin: 25px 0;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    }
-
-    .buttons {
-        margin-top: 20px;
-    }
-
-    button {
-        font-size: 1.1em;
-        padding: 12px 25px;
-        margin: 10px;
-        border: none;
-        border-radius: 30px;
-        cursor: pointer;
-    }
-
-    .yes {
-        background: #ff1493;
-        color: #fff;
-    }
-
-    .no {
-        background: #fff;
-        color: #ff1493;
-        position: relative;
-    }
-
-    footer {
-        margin: 30px 0 15px;
-        font-size: 0.85em;
-        opacity: 0.9;
-    }
-
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.15); }
-        100% { transform: scale(1); }
-    }
-</style>
-</head>
-<body>
-
-<div class="container">
-    <div class="heart">💗</div>
-
-    <h1>Eva, eu te amo</h1>
-    <h2>Tenho uma pergunta pra você 💕</h2>
-
-    <!-- Música d4vd -->
-    <div class="music">
-        <iframe width="100%" height="180"
-        src="https://www.youtube.com/embed/B7Y4LHbpXv0"
-        title="d4vd - Here With Me"
-        frameborder="0"
-        allowfullscreen></iframe>
-    </div>
-
-    <div class="card" id="pergunta">
-        <p>Você quer continuar sendo o amor da minha vida? 💖</p>
-
-        <div class="buttons">
-            <button class="yes" onclick="responderSim()">SIM 💕</button>
-            <button class="no" onmouseover="fugir(this)">NÃO 😅</button>
-        </div>
-    </div>
-
-    <footer>
-        Feito com todo meu amor 💗
-    </footer>
-</div>
-
-<script>
-function responderSim() {
-    document.getElementById("pergunta").innerHTML = `
-        <p style="font-size:1.3em;">
-        💖💖💖<br>
-        Eu sabia!<br>
-        Te amar é a melhor escolha da minha vida.<br>
-        Eu te amo, Eva!
-        </p>
-    `;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, #ffb6c1, #ff69b4);
+    color: #fff;
+    text-align: center;
 }
 
-function fugir(botao) {
-    const x = Math.random() * 200 - 100;
-    const y = Math.random() * 200 - 100;
-    botao.style.transform = `translate(${x}px, ${y}px)`;
+.container {
+    padding: 30px 18px;
+    max-width: 480px;
+    margin: auto;
 }
-</script>
 
-</body>
-</html>
+.heart {
+    font-size: 3.5em;
+    animation: pulse 1.5s infinite;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.3em;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 22px;
+    margin-top: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+button {
+    margin-top: 20px;
+    font-size: 1.1em
