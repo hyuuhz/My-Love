@@ -12,6 +12,7 @@ body {
     background: linear-gradient(180deg, #ffb6c1, #ff69b4);
     color: #fff;
     text-align: center;
+    overflow-x: hidden;
 }
 
 .container {
@@ -37,15 +38,34 @@ h1 {
     margin-top: 20px;
 }
 
-button {
+.buttons {
     margin-top: 20px;
+}
+
+button {
     font-size: 1.1em;
     padding: 14px 30px;
     border: none;
     border-radius: 30px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.yes {
     background: #ff1493;
     color: #fff;
-    cursor: pointer;
+}
+
+.no {
+    background: #fff;
+    color: #ff1493;
+    position: relative;
+}
+
+.space-hearts {
+    font-size: 1.4em;
+    line-height: 1.6;
+    margin-top: 20px;
 }
 
 @keyframes pulse {
@@ -64,7 +84,11 @@ button {
 
     <div class="card" id="box">
         <p>1️⃣ Você sabe que é a pessoa mais importante da minha vida?</p>
-        <button onclick="next()">Sim 💕</button>
+
+        <div class="buttons">
+            <button class="yes" onclick="next()">Sim 💕</button>
+            <button class="no" onmouseover="fugir(this)" ontouchstart="fugir(this)">Não 😅</button>
+        </div>
     </div>
 </div>
 
@@ -75,33 +99,57 @@ function next() {
     const box = document.getElementById("box");
 
     if (step === 1) {
-        box.innerHTML =
-            "<p>2️⃣ Você sente o quanto eu te amo todos os dias?</p>" +
-            "<button onclick='next()'>Sim 💖</button>";
-    }
+        box.innerHTML = pergunta(
+            "2️⃣ Você sente o quanto eu te amo todos os dias?"
+        );
+    } 
     else if (step === 2) {
-        box.innerHTML =
-            "<p>3️⃣ Você aceita continuar sorrindo comigo?</p>" +
-            "<button onclick='next()'>Sim 💕</button>";
-    }
+        box.innerHTML = pergunta(
+            "3️⃣ Você aceita continuar sorrindo comigo?"
+        );
+    } 
     else if (step === 3) {
-        box.innerHTML =
-            "<p>4️⃣ Você promete caminhar comigo em todos os momentos?</p>" +
-            "<button onclick='next()'>Sim 💗</button>";
-    }
+        box.innerHTML = pergunta(
+            "4️⃣ Você promete caminhar comigo em todos os momentos?"
+        );
+    } 
     else if (step === 4) {
-        box.innerHTML =
-            "<p>5️⃣ Você quer ser meu amor hoje, amanhã e sempre?</p>" +
-            "<button onclick='next()'>Sim 💘</button>";
-    }
+        box.innerHTML = pergunta(
+            "5️⃣ Você quer ser meu amor hoje, amanhã e sempre?"
+        );
+    } 
     else {
-        box.innerHTML =
-            "<h2>Então é pra sempre 💖</h2>" +
-            "<p>Eu te amo mais do que tudo, Eva.</p>" +
-            "<p>💗💗💗</p>";
+        box.innerHTML = `
+            <h2>Então é pra sempre 💖</h2>
+            <p>Eu te amo mais do que palavras conseguem explicar, Eva.</p>
+
+            <div class="space-hearts">
+            💗 💗 💗 💗 💗 💗 💗 💗 💗 💗<br>
+            💗 💗 💗 💗 💗 💗 💗 💗 💗 💗<br>
+            💗 💗 💗 💗 💗 💗 💗 💗 💗 💗<br>
+            💗 💗 💗 💗 💗 💗 💗 💗 💗 💗<br>
+            💗 💗 💗 💗 💗 💗 💗 💗 💗 💗
+            </div>
+        `;
     }
 
     step++;
+}
+
+function pergunta(texto) {
+    return `
+        <p>${texto}</p>
+        <div class="buttons">
+            <button class="yes" onclick="next()">Sim 💖</button>
+            <button class="no" onmouseover="fugir(this)" ontouchstart="fugir(this)">Não 😅</button>
+        </div>
+    `;
+}
+
+function fugir(botao) {
+    const x = Math.random() * 200 - 100;
+    const y = Math.random() * 200 - 100;
+    botao.style.transform = "translate(" + x + "px," + y + "px)";
 }
 </script>
 
